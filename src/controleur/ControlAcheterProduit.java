@@ -28,9 +28,12 @@ public class ControlAcheterProduit {
 	}
 	
 	public int acheterProduit(Gaulois vendeur, int quantite) {
-		Etal etal = village.rechercherEtal(vendeur);
-		
-		int produit =  etal.acheterProduit(quantite);
-		return produit;
+	    Etal etal = controlTrouverEtalVendeur.trouverEtalVendeur(vendeur.getNom());
+	    if (etal != null) {
+	        int produit = etal.acheterProduit(quantite);
+	        return produit;
+	    } else {
+	        return 0;
+	    }
 	}
 }
